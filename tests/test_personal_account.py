@@ -1,5 +1,4 @@
 import allure
-from pages.base_page import BasePage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.account_page import AccountPage
@@ -30,8 +29,7 @@ class TestPersonalAccount:
         main_page.click_lk_button()
         account_page = AccountPage(driver)
         account_page.click_orders_history_button()
-        base_page = BasePage(driver)
-        current_url = base_page.get_current_url()
+        current_url = driver.get_current_url()
         assert current_url == URLs.ORDER_HISTORY
 
     @allure.title('Личный кабинет')
@@ -48,7 +46,6 @@ class TestPersonalAccount:
         account_page = AccountPage(driver)
         account_page.click_logout_button()
         account_page.wait_redirect()
-        base_page = BasePage(driver)
-        current_url = base_page.get_current_url()
+        current_url = driver.get_current_url()
         assert current_url == URLs.LOGIN
 

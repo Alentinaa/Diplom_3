@@ -1,4 +1,3 @@
-from pages.base_page import BasePage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.forgot_password_page import ForgotPasswordPage
@@ -15,8 +14,7 @@ class TestForgotPassword:
         main_page.click_lk_button()
         login_page = LoginPage(driver)
         login_page.click_recovery_password_link()
-        base_page = BasePage(driver)
-        current_url = base_page.get_current_url()
+        current_url = driver.get_current_url()
         assert current_url == URLs.FORGOT_PASSWORD
 
     @allure.title('Восстановление пароля')
@@ -30,8 +28,7 @@ class TestForgotPassword:
         forgot_password_page.input_email()
         forgot_password_page.click_recovery_button()
         forgot_password_page.wait_redirect()
-        base_page = BasePage(driver)
-        current_url = base_page.get_current_url()
+        current_url = driver.get_current_url()
         assert current_url == URLs.RESET_PASSWORD
 
     @allure.title('Восстановление пароля')

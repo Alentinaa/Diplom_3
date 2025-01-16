@@ -26,8 +26,7 @@ class MainPage(BasePage):
 
     @allure.step('Клик на кнопку закрытия всплывающего окна с деталями ингредиента')
     def click_window_with_detail_close_button(self):
-        close_button = self.wait_and_find_element(MainPageLocators.ORDER_DETAILS_CLOSE_BUTTON)
-        close_button.click()
+        self.wait_and_find_element(MainPageLocators.ORDER_DETAILS_CLOSE_BUTTON).click()
 
     @allure.step('Клик на кнопку Оформить заказ')
     def click_order_button(self):
@@ -40,7 +39,7 @@ class MainPage(BasePage):
         self.click_element(close_button)
 
     @allure.step('Перемещение ингредиента в корзину-конструктор')
-    def move_ingredient_to_order(self, ingredient):
+    def move_ingredient_to_order(self):
         source_element = self.wait_and_find_element(MainPageLocators.INGREDIENT)
         target_element = self.wait_and_find_element(MainPageLocators.CONSTRUCTOR_BASKET)
         self.drag_and_drop_element(source_element, target_element)

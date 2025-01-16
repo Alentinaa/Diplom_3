@@ -18,7 +18,7 @@ class AccountPage(BasePage):
     @allure.step('Нажать на кнопку Выход')
     def click_logout_button(self):
         logout_button = self.wait_and_find_element(AccountPageLocators.LOGOUT_BUTTON)
-        self.driver.execute_script("arguments[0].click();", logout_button)
+        self.click_element(logout_button)
 
     @allure.step('Получить номер заказа пользователя из раздела История заказов')
     def get_order_number_from_history(self):

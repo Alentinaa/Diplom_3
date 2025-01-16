@@ -12,8 +12,7 @@ class ForgotPasswordPage(BasePage):
 
     @allure.step('Клик на кнопку Восстановить')
     def click_recovery_button(self):
-        login_submit_button = self.wait_and_find_element(ForgotPasswordLocators.RECOVERY_BUTTON)
-        login_submit_button.click()
+        self.wait_and_find_element(ForgotPasswordLocators.RECOVERY_BUTTON).click()
 
     @allure.step('Ожидание изменения url страницы"')
     def wait_redirect(self):
@@ -21,8 +20,7 @@ class ForgotPasswordPage(BasePage):
 
     @allure.step('Клик на кнопку Показать/скрыть пароль в поле ввода пароля')
     def click_show_hide_password_button(self):
-        submit_button = self.wait_and_find_element(ForgotPasswordLocators.SHOW_HIDE_PASSWORD_BUTTON)
-        submit_button.click()
+        self.wait_and_find_element(ForgotPasswordLocators.SHOW_HIDE_PASSWORD_BUTTON).click()
 
     @allure.step('Клик на кнопку Показать/скрыть пароль делает поле активным')
     def reset_password_field_become_active(self):
