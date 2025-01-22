@@ -29,7 +29,7 @@ class TestPersonalAccount:
         main_page.click_lk_button()
         account_page = AccountPage(driver)
         account_page.click_orders_history_button()
-        current_url = driver.get_current_url()
+        current_url = main_page.get_current_url()
         assert current_url == URLs.ORDER_HISTORY
 
     @allure.title('Личный кабинет')
@@ -46,6 +46,6 @@ class TestPersonalAccount:
         account_page = AccountPage(driver)
         account_page.click_logout_button()
         account_page.wait_redirect()
-        current_url = driver.get_current_url()
+        current_url = main_page.get_current_url()
         assert current_url == URLs.LOGIN
 

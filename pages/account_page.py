@@ -12,8 +12,7 @@ class AccountPage(BasePage):
 
     @allure.step('Нажать на кнопку История заказов')
     def click_orders_history_button(self):
-        orders_history_link = self.wait_and_find_element(AccountPageLocators.ORDERS_HISTORY)
-        orders_history_link.click()
+        self.wait_and_find_element(AccountPageLocators.ORDERS_HISTORY).click()
 
     @allure.step('Нажать на кнопку Выход')
     def click_logout_button(self):

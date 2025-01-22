@@ -14,7 +14,7 @@ class TestForgotPassword:
         main_page.click_lk_button()
         login_page = LoginPage(driver)
         login_page.click_recovery_password_link()
-        current_url = driver.get_current_url()
+        current_url = main_page.get_current_url()
         assert current_url == URLs.FORGOT_PASSWORD
 
     @allure.title('Восстановление пароля')
@@ -28,7 +28,7 @@ class TestForgotPassword:
         forgot_password_page.input_email()
         forgot_password_page.click_recovery_button()
         forgot_password_page.wait_redirect()
-        current_url = driver.get_current_url()
+        current_url = main_page.get_current_url()
         assert current_url == URLs.RESET_PASSWORD
 
     @allure.title('Восстановление пароля')
